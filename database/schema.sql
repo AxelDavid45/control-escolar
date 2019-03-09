@@ -66,6 +66,8 @@ CREATE TABLE grupos
   CONSTRAINT pk_grupos PRIMARY KEY (id)
 ) ENGINE = InnoDb;
 
+ALTER TABLE grupos ADD CONSTRAINT fk_asesorgrupo FOREIGN KEY (id_asesor) REFERENCES asesores(id);
+
 CREATE TABLE alumnos
 (
   id               int(255) auto_increment not null,
@@ -120,11 +122,87 @@ CREATE TABLE grupos_alumnos
   INSERTS DE PRUEBA
   ---------------------------*/
 
-# TUTORES
+  /*----------------
+   USUARIOS
+  ---------*/
+  INSERT INTO usuarios VALUES(NULL, 'Axel', '123456789', 1, CURDATE());
+
+
+/*-------------------------
+TUTORES
+--------------------*/
 INSERT INTO tutores VALUES(NULL,'Juan David', 'Perez Robles', 'perre@gmail.com', '6348432', '961157823', '8734381', 'Presa tingambato 803 col electricistas las palmas', 'Catolico');
 
 INSERT INTO tutores VALUES(NULL,'Nacho Juan', 'Noble Azul', 'asul@hotmail.com', '6458432', '97338293', '83747633', 'La salle tuxtla gtz', 'Ninguna');
 
 INSERT INTO tutores VALUES(NULL,'Pablo', 'Escobar Roble', 'paess@hotmail.com', '28282322', '3937373', '929238382', 'New York City', 'Ninguna');
 
-INSERT INTO tutores VALUES(NULL,'Pablo', 'Escobar Roble', 'paess@hotmail.com', '28282322', '3937373', '929238382', 'New York City', 'Ninguna');
+INSERT INTO tutores VALUES(NULL,'David', 'Jii', 'jii@hotmail.com', '948484', '847473', '974474', 'Brooklyn', 'Adventista');
+
+/*-----------------------------
+RESPONSABLES ECONOMICOS
+-------------------------------*/
+INSERT INTO reseconomicos VALUES(NULL,'Juan David', 'Perez Robles', 'perre@gmail.com', '6348432', '961157823', '8734381');
+
+INSERT INTO reseconomicos VALUES(NULL,'Nacho Juan', 'Noble Azul', 'asul@hotmail.com', '6458432', '97338293', '83747633');
+
+INSERT INTO reseconomicos VALUES(NULL,'Pablo', 'Escobar Roble', 'paess@hotmail.com', '28282322', '3937373', '929238382');
+
+INSERT INTO reseconomicos VALUES(NULL,'David', 'Jii', 'jii@hotmail.com', '948484', '847473', '974474');
+
+/*--------------------------------
+  ASESORES
+-----------------------------------*/
+INSERT INTO asesores VALUES(NULL,'Diana Paola', 'Espinosa Meneses', '9827282', '828272637', 'diana@hotmail.com','2018-08-21', 'Av central ote 1893 centro', 'Catolica', 'Entro un 21 de agosto de 2018');
+
+INSERT INTO asesores VALUES(NULL,'Axel David', 'Espinosa Meneses', '9827282', '828272637', 'diana@hotmail.com','2018-02-01', 'Av central ote 1893 centro', 'Catolica', 'Entro un 21 de agosto de 2018');
+
+INSERT INTO asesores VALUES(NULL,'Jesus Eduardo', 'Zavala Meneses', '9827282', '828272637', 'diana@hotmail.com','2018-09-22', 'Av central ote 1893 centro', 'Catolica', 'Entro un 21 de agosto de 2018');
+
+INSERT INTO asesores VALUES(NULL,'Natalia Beatriz', 'Zavala Meneses', '9827282', '828272637', 'diana@hotmail.com','2018-09-22', 'Av central ote 1893 centro', 'Catolica', 'Entro un 21 de agosto de 2018');
+
+/*--------------------
+  GRUPOS (Estos datos fueron insertados despues de insertar los anteriores)
+--------------------*/
+
+INSERT INTO grupos VALUES(NULL, 1, 'Preescolar', '1','A');
+
+INSERT INTO grupos VALUES(NULL, 2, 'Preescolar', '1','B');
+
+INSERT INTO grupos VALUES(NULL, 3, 'Preescolar', '1','C');
+
+INSERT INTO grupos VALUES(NULL, 4, 'Preescolar', '2','A');
+
+INSERT INTO grupos VALUES(NULL, 2, 'Preescolar', '2','B');
+
+INSERT INTO grupos VALUES(NULL, 1, 'Preescolar', '2','C');
+
+/*--------------------
+  ALUMNOS (datos creados al final)
+---------------------*/
+#Alumno 1
+INSERT INTO alumnos VALUES(NULL,'Juan', 'Gomez', '2016-09-02', 'Masculino',4, 'Catolica', '2019-01-28', 1500, 'No tiene ninguna alergia');
+# Insertamos el grupo del alumno en la tabla pivote
+INSERT INTO grupos_alumnos VALUES(NULL,1,1);
+#Insertamos el tutor del alumno
+INSERT INTO tutores_alumnos VALUES(NULL,1,1);
+#Insertamos la relacion en la tabla de responsables economicos
+INSERT INTO reseconomicos_alumnos VALUES(NULL,1,1);
+
+#Alumno 2
+INSERT INTO alumnos VALUES(NULL,'Diana', 'Perez', '2015-02-22', 'Femenino',4, 'Catolica', '2019-01-28', 2300, 'No tiene ninguna alergia');
+INSERT INTO grupos_alumnos VALUES(NULL,1,2);
+INSERT INTO tutores_alumnos VALUES(NULL,2,2);
+INSERT INTO reseconomicos_alumnos VALUES(NULL,2,2);
+
+#Alumno 3
+INSERT INTO alumnos VALUES(NULL,'Paola', 'Meneses', '2015-02-22', 'Femenino',5, 'Catolica', '2019-01-28', 2300, 'No tiene ninguna alergia');
+INSERT INTO grupos_alumnos VALUES(NULL,2,3);
+INSERT INTO tutores_alumnos VALUES(NULL,3,3);
+INSERT INTO reseconomicos_alumnos VALUES(NULL,3,3);
+
+#Alumno 4
+INSERT INTO alumnos VALUES(NULL,'Axel David', 'Espinosa', '2015-08-22', 'Femenino',4, 'Catolica', '2018-11-28', 2300, 'No tiene ninguna alergia');
+INSERT INTO grupos_alumnos VALUES(NULL,2,4);
+INSERT INTO tutores_alumnos VALUES(NULL,4,4);
+INSERT INTO reseconomicos_alumnos VALUES(NULL,4,4);
