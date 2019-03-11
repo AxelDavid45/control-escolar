@@ -1,9 +1,7 @@
 <?php
-
-namespace Controllers;
-
-
 class usuariosController
 {
-
+    public function index() {
+        echo "Hola desde usuarios controller";
+    }
 }

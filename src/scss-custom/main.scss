@@ -1,0 +1,15 @@
+//variables
+$color-azul : #17356A;
+//Importacion de estilos personales
+@import "../scss-custom/componentes/logotipo";
+@import "../scss-custom/componentes/generales";
+@import "../scss-custom/componentes/lateral";
+@import "../scss-custom/componentes/botones";
+@import "../scss-custom/componentes/tablas";
+@import "../scss-custom/componentes/subcabecera";
+@import "../scss-custom/componentes/footer";
+@import "../scss-custom/componentes/InputsNuevos";
+@import "../scss-custom/componentes/login";
+
+//importacion de bootstrap
+@import "../bootstrap-scss/bootstrap";

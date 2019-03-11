@@ -1,0 +1,14 @@
+.EnlaceLateral {
+    display: inline-block;
+    text-align: center;
+    color: #fff;
+    line-height: 2rem;
+    padding: 8px;
+}
+.EnlaceLateral:nth-child(10) {
+    padding: 20px 0 20px 0;
+    margin-bottom: 15px;
+}
+.contenedorLogo {
+    border-bottom: 2px solid #fff;
+}

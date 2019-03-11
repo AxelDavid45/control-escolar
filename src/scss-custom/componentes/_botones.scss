@@ -1,0 +1,15 @@
+/* BOTONES */
+.btn {
+    padding: 5px 30px;
+}
+.btn-verde {
+    background: #AAD250;
+}
+.btn-azul {
+    background:$color-azul;
+    color:#fff;
+    font-weight: bold!important;
+    &:hover {
+        background:#09152b; 
+    }
+}
