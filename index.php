@@ -1,6 +1,9 @@
 <?php
+session_start();
 require_once 'autoload.php';
 require_once 'config/parametros.php';
+require_once 'config/database.php';
+require_once "helpers/helpers.php";
 
 function showError()
 {
@@ -9,8 +12,7 @@ function showError()
 }
 
 //Comprobamos que nos llegue por parametro un controller
-if (isset($_SESSION['sesioniniciada']) && $_SESSION['sesioniniciada'] == 'ok') {
-
+if (isset($_SESSION['sesion_iniciada']) && $_SESSION['sesion_iniciada'] == 'ok') {
 
     if (isset($_GET['controller'])) {
         $clase = $_GET['controller'].'Controller';
