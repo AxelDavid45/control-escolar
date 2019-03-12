@@ -13,6 +13,8 @@ function showError()
 
 //Comprobamos que nos llegue por parametro un controller
 if (isset($_SESSION['sesion_iniciada']) && $_SESSION['sesion_iniciada'] == 'ok') {
+    require_once "views/layout/cabecera.php";
+    require_once "views/layout/navegacion.php";
 
     if (isset($_GET['controller'])) {
         $clase = $_GET['controller'].'Controller';
@@ -44,4 +46,5 @@ if (isset($_SESSION['sesion_iniciada']) && $_SESSION['sesion_iniciada'] == 'ok')
 } else {
     require_once "views/usuarios/login.php";
 }
+require_once "views/layout/footer.php";
 ?>

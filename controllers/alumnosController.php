@@ -2,6 +2,6 @@
 class alumnosController
 {
     public function index() {
-        echo 'Hola desde alumnos';
+        require_once "views/alumnos/todos.php";
     }
 }
