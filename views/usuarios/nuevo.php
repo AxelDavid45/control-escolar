@@ -3,6 +3,12 @@
 </div>
 <div class="ContenedorNuevos">
     <h3 class="text-center mb-2">Rellena todos los datos</h3>
+    <?php  if(isset($_SESSION['error']) && $_SESSION['error']): ?>
+    <div class="alert alert-danger">
+        <p class="text-center m-0">Ocurrio un error, comprueba los datos o intenta de nuevo</p>
+    </div>
+
+    <?php  endif; ?>
     <form method="POST" action="<?=base_url?>usuarios/save">
         <div class="row mt-3">
             <div class="col">
@@ -28,4 +34,6 @@
             </div>
     </form>
 </div>
+<span><strong>*Todos los campos tienen que ser llenados*</strong></span>
 </div>
+<?php  helpers::borrarSesion('error'); ?>

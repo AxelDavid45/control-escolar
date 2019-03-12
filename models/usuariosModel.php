@@ -23,12 +23,12 @@ class usuariosModel
 
     public function getPassword()
     {
-        return $this->password;
+        return password_hash($this->db->real_escape_string($this->password),PASSWORD_BCRYPT,['cost' => 4]);
     }
 
     public function setPassword($password)
     {
-        $this->password = password_hash($this->db->real_escape_string($password),PASSWORD_BCRYPT,['cost' => 4]);
+        $this->password = $password;
     }
 
     public function getRol()
@@ -52,16 +52,22 @@ class usuariosModel
     }
 
     public function login() {
-        $sql = "SELECT * FROM usuarios WHERE nombre = '{$this->getNombre()}' AND password = '{$this->getPassword()}'";
+        //Consulta que comprueba el usuario
+        $sql = "SELECT * FROM usuarios WHERE nombre = '{$this->getNombre()}'";
         $query = $this->db->query($sql);
         $result = false;
         if($query && $query->num_rows == 1) {
             $result = $query->fetch_object();
-            return $result;
+            $verify = password_verify($this->password, $result->password);
+            if($verify) {
+                return $result;
+            }
         }
+
         return $result;
     }
 
+    //Guarda un usuario en la base de datos
     public function save() {
         $sql = "INSERT INTO usuarios VALUES(null,'{$this->getNombre()}','{$this->getPassword()}', {$this->getRol()},CURDATE())";
         $query = $this->db->query($sql);
@@ -74,6 +80,7 @@ class usuariosModel
 
 
     }
+
 
 
 }

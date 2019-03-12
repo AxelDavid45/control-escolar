@@ -80,11 +80,12 @@ class usuariosController
                         echo "error en query";
                     }
                 }else {
-                    echo 'hay errores';
-                    var_dump($errores);
-                    var_dump($usuarioNuevo);
-                    die();
+                    $_SESSION['error'] = true;
+                    header("Location:".base_url.'usuarios/registro');
                 }
+            }else {
+                $_SESSION['error'] = true;
+                header("Location:".base_url.'usuarios/registro');
             }
         }
     }

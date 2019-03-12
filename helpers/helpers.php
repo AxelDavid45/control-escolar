@@ -6,7 +6,6 @@ class helpers
     {
         if(isset($_SESSION[$sesion])) {
             $_SESSION[$sesion] = null;
-            unset($_SESSION[$sesion]);
         }
     }
 
