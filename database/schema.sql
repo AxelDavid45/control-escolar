@@ -7,7 +7,7 @@ CREATE TABLE usuarios
 (
   id             int(255) auto_increment,
   nombre         varchar(100) not null,
-  password       varchar(50)  not null,
+  password       varchar(255)  not null,
   rol            int(10)      not null,
   fecha_creacion date,
   CONSTRAINT pk_usuarios PRIMARY KEY (id)

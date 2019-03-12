@@ -8,6 +8,7 @@
         <a href="<?=base_url?>alumnos/index" class="EnlaceLateral borde-abajo">Ver alumnos</a>
         <a href="<?=base_url?>grupos/index" class="EnlaceLateral borde-abajo">Ver grupos</a>
         <a href="<?=base_url?>tutores/index" class="EnlaceLateral borde-abajo">Ver tutores</a>
+        <a href="<?=base_url?>usuarios/registro" class="EnlaceLateral borde-abajo">Crear usuario</a>
         <a href="crear_grupo.html" class="EnlaceLateral borde-abajo">Crear grupo</a>
         <a href="crear_asesor.html" class="EnlaceLateral borde-abajo">Crear asesor</a>
         <a href="crear_tutor.html" class="EnlaceLateral borde-abajo">Crear tutor</a>

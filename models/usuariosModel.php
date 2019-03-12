@@ -81,6 +81,16 @@ class usuariosModel
 
     }
 
+    public function getAll() {
+        $sql = "SELECT * FROM usuarios ORDER BY id DESC";
+        $query = $this->db->query($sql);
+        $result = false;
+        if($query) {
+            $result = $query;
+            return $result;
+        }
+        return $result;
+    }
 
 
 }

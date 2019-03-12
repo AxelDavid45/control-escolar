@@ -6,6 +6,8 @@ class usuariosController
     //Muestra todos los registros
     public function index()
     {
+        $usuarios = new usuariosModel();
+        $todosUsuarios = $usuarios->getAll();
         require_once "views/usuarios/todos.php";
     }
 
