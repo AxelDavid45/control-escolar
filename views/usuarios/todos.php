@@ -1,6 +1,6 @@
 <div class="CabeceraApp"> <!---- cabecera de la app --->
     <a href="<?= base_url ?>usuarios/registro" class="btn btn-verde redondeado sombra">Nuevo</a>
-    <h1 class="TituloNuevos m-0 p-0">Todos los usuarios</h1>
+    <h1 class="TituloNuevos m-0 p-0">Mostrando: Usuarios</h1>
     <?php require_once "views/layout/buscador.php" ?>
 </div> <!--- div que termina la cabecera app -->
 <div class="TablasApp">

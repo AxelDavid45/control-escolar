@@ -206,3 +206,12 @@ INSERT INTO alumnos VALUES(NULL,'Axel David', 'Espinosa', '2015-08-22', 'Femenin
 INSERT INTO grupos_alumnos VALUES(NULL,2,4);
 INSERT INTO tutores_alumnos VALUES(NULL,4,4);
 INSERT INTO reseconomicos_alumnos VALUES(NULL,4,4);
+
+
+
+# PRUEBAS PARA CONSULTAS
+SELECT a.*, g.nivel, g.grupo,g.grado, t.* FROM alumnos a
+INNER JOIN grupos_alumnos ga ON a.id = ga.id_alumno
+INNER JOIN grupos g ON g.id = ga.id_grupo
+INNER JOIN tutores_alumnos ta on a.id = ta.id_alumno
+INNER JOIN tutores t on ta.id_tutor = t.id;
