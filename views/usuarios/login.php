@@ -48,7 +48,6 @@ helpers::borrarSesion('error');
 $controller = new usuariosController();
 $controller->login();
 ?>
-<script src="<?=base_url?>assets/js/app.js"></script>
 
 </body>
 

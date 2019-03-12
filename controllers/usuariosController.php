@@ -44,5 +44,13 @@ class usuariosController
     public function registro() {
         require_once "views/usuarios/nuevo.php";
     }
+    //Guarda los usurios en la bd
+    public function save() {
+        if(isset($_POST)) {
+            $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : false;
+            $pass = isset($_POST['password']) ? $_POST['password'] : false;
+            $rol = isset($_POST['rol']) ? $_POST['rol'] : false;
+        }
+    }
 
 }

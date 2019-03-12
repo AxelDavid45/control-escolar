@@ -1,4 +1,7 @@
+<div class="CabeceraApp"> <!---- cabecera de la app --->
+<a href="<?= base_url ?>usuarios/registro" class="btn btn-verde redondeado sombra">Nuevo</a>
 <?php require_once "views/layout/buscador.php" ?>
+</div> <!--- div que termina la cabecera app -->
 <div class="TablasApp">
     <table class="table table-hover">
         <thead class="thead-azul">
