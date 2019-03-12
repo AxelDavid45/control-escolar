@@ -28,7 +28,7 @@ class usuariosModel
 
     public function setPassword($password)
     {
-        $this->password = $this->db->real_escape_string($password);
+        $this->password = password_hash($this->db->real_escape_string($password),PASSWORD_BCRYPT,['cost' => 4]);
     }
 
     public function getRol()
@@ -60,6 +60,19 @@ class usuariosModel
             return $result;
         }
         return $result;
+    }
+
+    public function save() {
+        $sql = "INSERT INTO usuarios VALUES(null,'{$this->getNombre()}','{$this->getPassword()}', {$this->getRol()},CURDATE())";
+        $query = $this->db->query($sql);
+        $result = false;
+        if($query) {
+            $result = $query;
+            return $result;
+        }
+        return $result;
+
+
     }
 
 

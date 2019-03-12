@@ -41,15 +41,51 @@ class usuariosController
         }
     }
 
-    public function registro() {
+    public function registro()
+    {
         require_once "views/usuarios/nuevo.php";
     }
+
     //Guarda los usurios en la bd
-    public function save() {
-        if(isset($_POST)) {
+    public function save()
+    {
+        if (isset($_POST)) {
             $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : false;
             $pass = isset($_POST['password']) ? $_POST['password'] : false;
             $rol = isset($_POST['rol']) ? $_POST['rol'] : false;
+            $errores = [];
+            if ($nombre && $pass && $rol) {
+                $usuarioNuevo = new usuariosModel();
+                if ($nombre && !is_numeric($nombre) && !preg_match('/[0-9]/', $nombre)) {
+                    $usuarioNuevo->setNombre($nombre);
+                } else {
+                    $errores[]['nombre'] = true;
+                }
+                if($pass && strlen($pass)>= 10) {
+                    $usuarioNuevo->setPassword($pass);
+                } else {
+                    $errores[]['pass'] = true;
+                }
+                if($rol) {
+                    $usuarioNuevo->setRol($rol);
+                } else {
+                    $errores[]['rol'] = true;
+                }
+                if(empty($errores)) {
+                    $save = $usuarioNuevo->save();
+                    if($save) {
+                        header("Location:".base_url);
+                    }else{
+                        var_dump($save);
+                        echo "error en query";
+                    }
+                }else {
+                    echo 'hay errores';
+                    var_dump($errores);
+                    var_dump($usuarioNuevo);
+                    die();
+                }
+            }
         }
     }
 

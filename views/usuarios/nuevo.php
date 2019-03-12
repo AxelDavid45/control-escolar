@@ -6,13 +6,13 @@
     <form method="POST" action="<?=base_url?>usuarios/save">
         <div class="row mt-3">
             <div class="col">
-                <input type="text" placeholder="Nombre:" class="form-control">
+                <input type="text" name="nombre" placeholder="Nombre:" class="form-control">
             </div>
             <div class="col">
-                <input type="password" placeholder="Contraseña:" class="form-control">
+                <input type="password" name="password" placeholder="Contraseña:" class="form-control">
             </div>
             <div class="col">
-                <input type="password" placeholder="Confirma tu contraseña: " class="form-control">
+                <input type="password" placeholder="Confirma tu contraseña: " class="form-control" id="confirmaPass">
             </div>
             <div class="col">
                 <select name="rol" id="rol" class="custom-select">
